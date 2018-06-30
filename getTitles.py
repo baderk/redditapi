@@ -1,7 +1,9 @@
 import praw
 
-reddit = praw.Reddit(client_id='mcS-MYyhJWPXgw',
-                     client_secret='3Rsyye8Uj_QHWyJk66Na3nJ4LWs',
+reddit = praw.Reddit(client_id=' jqfZmo_jVWjklA',
+                     client_secret='uHDoZT20IdvspiLymkQ7vjyS8C8',
+                     username='Ambitious_Vegetable',
+                     password='redditAPI_'
                      user_agent='my user agent')
 
 print(reddit.read_only)
