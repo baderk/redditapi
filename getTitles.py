@@ -55,7 +55,7 @@ def searchCameraAndFilm(keyword):
 		#print (i.title)
 	print ("The word appeared", count, "times.")
 
-#calling
+#calling functions
 numberOfPosts(keyword)
 
 searchCameraAndFilm(keyword)
