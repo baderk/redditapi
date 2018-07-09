@@ -40,7 +40,8 @@ def numberOfPosts(keyword):
 # print (postTitle)
 
 
-
+# so most likely this is the correct way to search in all the subreddit. But I think I am limited to search only 
+# in the latest 1000 post. Try adding the results to a list and then count that list items instead. So I'd get 1000 after 100 until NULL and add them to the list.
 
 def searchCameraAndFilm(keyword):
 	post_title = ""
