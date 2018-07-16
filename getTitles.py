@@ -13,21 +13,26 @@ reddit = praw.Reddit(client_id='5QRK4vEHkC2uhw',
 
 # so  i don't need to create a list and add the title to it. 
 # I could just use the temp_title string and set it to be equal as the submission.title
-analog = reddit.subreddit("analog")
 
+
+subreddit_input = input("What subreddit do you want to search in?\n")
+
+subreddit_name = reddit.subreddit(subreddit_input)
 
 keyword = input("Search: ")
 
 
 def numberOfPosts(keyword):
 	# subreddit
-	hot_analog = analog.top()
+	
+	hot = subreddit_name.top()
 	
 	post_title = ""
 	count = 0
 
-	print ("----------USING HOT Analog----------")
-	for submission in hot_analog:
+	print ("----------USING HOT ----------")
+
+	for submission in hot:
 		# postTitle.append(submission.title)
 		post_title = submission.title
 		if not submission.stickied:
@@ -36,6 +41,7 @@ def numberOfPosts(keyword):
 	print ("The word appeared", count, "times.\n")
 
 	# i dont actually need to print the list, but for now it is printed and formatted
+
 # print ('\n'.join('{}: {}'.format(*k) for k in enumerate(postTitle)))
 # print (postTitle)
 
@@ -48,8 +54,9 @@ def searchCameraAndFilm(keyword):
 	#reset count
 	count = 0
 	print ("------------USING SEARCH------------")
-	search_analog = analog.search(keyword, syntax='lucene', time_filter ='all')
-	for i in search_analog:
+	
+	search_subreddit = subreddit_name.search(keyword, syntax='lucene', time_filter ='all')
+	for i in search_subreddit:
 		#post_title = i.title
 		#if camera+film in post_title.lower():
 		count += 1
