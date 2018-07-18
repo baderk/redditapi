@@ -15,11 +15,11 @@ reddit = praw.Reddit(client_id='5QRK4vEHkC2uhw',
 # I could just use the temp_title string and set it to be equal as the submission.title
 
 
-subreddit_input = input("What subreddit do you want to search in?\n")
+#subreddit_input = input("What subreddit do you want to search in?\n")
 
-subreddit_name = reddit.subreddit(subreddit_input)
+#subreddit_name = reddit.subreddit(subreddit_input)
 
-keyword = input("Search: ")
+#keyword = input("Search: ")
 
 
 def numberOfPosts(keyword):
@@ -49,10 +49,50 @@ def numberOfPosts(keyword):
 # so most likely this is the correct way to search in all the subreddit. But I think I am limited to search only 
 # in the latest 1000 post. Try adding the results to a list and then count that list items instead. So I'd get 1000 after 100 until NULL and add them to the list.
 
+
+
+
+#def openFile():
+#	f = open("cameras.txt","r")
+#	fl = f.readlines()
+#	for x in fl:
+#		print(x)
+	
+
+#FIND A WAY TO GET ALL POSTS NOT ONLY HOT OR TOP
+
+def countOccurance():
+	canon = 0
+	olympus = 0
+	contax = 0
+
+	print("------Counting Occurance------")
+	
+	analogSub = reddit.subreddit('analog').top()
+
+	for i in analogSub:
+		postTitle = i.title
+		#words = postTitle.split()
+
+		print(postTitle)
+
+		if "Canon" in postTitle:
+			canon += 1
+		elif "Olympus" in postTitle:
+			olympus += 1
+		elif "Contax" in postTitle:
+			contax += 1
+
+	
+	print("Canon: ", canon, "\nOlympus: ", olympus, "\nContax: ", contax)
+
+
 def searchCameraAndFilm(keyword):
 	post_title = ""
+	
 	#reset count
 	count = 0
+	
 	print ("------------USING SEARCH------------")
 	
 	search_subreddit = subreddit_name.search(keyword, syntax='lucene', time_filter ='all')
@@ -64,6 +104,12 @@ def searchCameraAndFilm(keyword):
 	print ("The word appeared", count, "times.")
 
 #calling functions
-numberOfPosts(keyword)
+#numberOfPosts(keyword)
 
-searchCameraAndFilm(keyword)
+#searchCameraAndFilm(keyword)
+
+countOccurance()
+
+
+
+#openFile()
