@@ -61,12 +61,29 @@ def numberOfPosts(keyword):
 
 #FIND A WAY TO GET ALL POSTS NOT ONLY HOT OR TOP
 
-def countOccurance():
+def countOccurence():
+	#cameras = {} #dictionary
+	currentWord = 0
+	with open("cameras.txt", "r") as file:
+		cameras = [line.strip() for line in file]
+
+	
+	
+
+		if currentWord in cameras:
+			cameras[currentWord] += 1
+
+	print(cameras)
+	print(currentWord)
+
 	canon = 0
 	olympus = 0
 	contax = 0
+	nikon = 0
+	yashica = 0
 
-	print("------Counting Occurance------")
+#	print(C)
+	print("------Counting Occurence------")
 	
 	analogSub = reddit.subreddit('analog').top()
 
@@ -74,7 +91,8 @@ def countOccurance():
 		postTitle = i.title
 		#words = postTitle.split()
 
-		print(postTitle)
+		
+		#print(postTitle)
 
 		if "Canon" in postTitle:
 			canon += 1
@@ -82,9 +100,14 @@ def countOccurance():
 			olympus += 1
 		elif "Contax" in postTitle:
 			contax += 1
-
+		elif "Nikon" in postTitle:
+			nikon += 1
+		elif "yashica" in postTitle:
+			yashica += 1
 	
-	print("Canon: ", canon, "\nOlympus: ", olympus, "\nContax: ", contax)
+	
+	print("Canon: ", canon, "\nOlympus: ", olympus, "\nContax: ", 
+		contax, "\nNikon: ", nikon, "\nYashica: ", yashica)
 
 
 def searchCameraAndFilm(keyword):
@@ -108,7 +131,7 @@ def searchCameraAndFilm(keyword):
 
 #searchCameraAndFilm(keyword)
 
-countOccurance()
+countOccurence()
 
 
 
