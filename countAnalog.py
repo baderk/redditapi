@@ -1,5 +1,7 @@
 import praw
 import time
+import json
+
 start_time = time.time()
 
 
@@ -44,7 +46,7 @@ def countOccurence():
             if word in postTitle:
                 words[word] += 1
 
-    print(words)
+    print json.dumps(words, indent=2, sort_keys=True)
 
 countOccurence()
 
