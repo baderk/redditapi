@@ -1,5 +1,7 @@
 import praw
-from collections import Counter
+import time
+start_time = time.time()
+
 
 # Script
 reddit = praw.Reddit(client_id='5QRK4vEHkC2uhw',
@@ -44,8 +46,9 @@ def countOccurence():
 
     print(words)
 
-    countOccurence()
+countOccurence()
 
+print("--- %s seconds ---" % round(time.time() - start_time, 2))
         #print(postTitle)
     #
     #     if "Canon" in postTitle:

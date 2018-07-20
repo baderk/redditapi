@@ -1,5 +1,6 @@
 import praw
-from collections import Counter
+import time
+start_time = time.time()
 
 #FIND A WAY TO GET ALL POSTS NOT ONLY HOT OR TOP
 
@@ -55,3 +56,6 @@ def searchCameraAndFilm(keyword):
 
 numberOfPosts(keyword)
 searchCameraAndFilm(keyword)
+
+
+print("--- %s seconds ---" % round(time.time() - start_time, 2))
