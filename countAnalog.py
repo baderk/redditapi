@@ -46,7 +46,7 @@ def countOccurence():
             if word in postTitle:
                 words[word] += 1
 
-    print json.dumps(words, indent=2, sort_keys=True)
+    print (json.dumps(words, indent=2, sort_keys=True))
 
 countOccurence()
 
