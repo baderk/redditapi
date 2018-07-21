@@ -17,39 +17,25 @@ reddit = praw.Reddit(client_id='5QRK4vEHkC2uhw',
 
 plotly.tools.set_credentials_file(username='baderk', api_key='vZoYPBNCyyTiHBA3Pn9X')
 
-# so  i don't need to create a list and add the title to it.
-# I could just use the temp_title string and set it to be equal as the submission.title
-#i dont actually need to print the list, but for now it is printed and formatted
-# print ('\n'.join('{}: {}'.format(*k) for k in enumerate(postTitle)))
-# print (postTitle)
-
-# so most likely this is the correct way to search in all the subreddit. But I think I am limited to search only
-# in the latest 1000 post. Try adding the results to a list and then count that list items instead. So I'd get 1000 after 100 until NULL and add them to the list.
-
 #FIND A WAY TO GET ALL POSTS NOT ONLY HOT OR TOP
 
 def countOccurence():
     words = {}
 
     print("------Counting Occurence------")
-
-    analogSub = reddit.subreddit('analog').top(limit=999)
+    analogSub = reddit.subreddit('analog').new(limit=1000)
+    # analogSub = subreddit_name.search(keyword, syntax='lucene', time_filter ='all', limit=999)
 
     # Text file into the dictionary words{}
     file = open("cameras.txt", "r")
     for line in file:
-        words[line.strip()] = 0
-
-
+        words[line.strip().lower()] = 0
 
     for i in analogSub:
-        postTitle = i.title
+        postTitle = i.title.lower()
         for word in words:
             if word in postTitle:
                 words[word] += 1
-
-    jsonResponse = json.dumps(words, indent=2, sort_keys=True)
-
 
     xList = list(words.keys())
     yList = list(words.values())
@@ -62,6 +48,8 @@ def countOccurence():
 
     py.plot(data, filename='basic-bar')
 
+
+    jsonResponse = json.dumps(words, indent=2, sort_keys=True)
     print(jsonResponse)
 
 countOccurence()

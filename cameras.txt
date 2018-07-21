@@ -1,13 +1,19 @@
 canon
+canon ae-1
+pentax 67
 pentax
 mamiya
+olympus mju
+olympus pen
 olympus
 yashica
 minolta
 nikon
 hasselblad
 leica
+Leica
 bronica
+Bronica
 contax
 ricoh
 fuji
