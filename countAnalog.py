@@ -2,10 +2,12 @@ import praw
 import time
 import json
 
+import plotly
+import plotly.plotly as py
+import plotly.graph_objs as go
+
 start_time = time.time()
 
-
-# Script
 reddit = praw.Reddit(client_id='5QRK4vEHkC2uhw',
                      client_secret='TPkY8jF3L5gf1lH1mw-tIgXUZuY',
                      user_agent='my user agent',
@@ -13,7 +15,7 @@ reddit = praw.Reddit(client_id='5QRK4vEHkC2uhw',
                      password='redditAPI_'
                     )
 
-
+plotly.tools.set_credentials_file(username='baderk', api_key='vZoYPBNCyyTiHBA3Pn9X')
 
 # so  i don't need to create a list and add the title to it.
 # I could just use the temp_title string and set it to be equal as the submission.title
@@ -46,7 +48,21 @@ def countOccurence():
             if word in postTitle:
                 words[word] += 1
 
-    print (json.dumps(words, indent=2, sort_keys=True))
+    jsonResponse = json.dumps(words, indent=2, sort_keys=True)
+
+
+    xList = list(words.keys())
+    yList = list(words.values())
+
+    data = [go.Bar(
+
+                x = xList,
+                y = yList
+        )]
+
+    py.plot(data, filename='basic-bar')
+
+    print(jsonResponse)
 
 countOccurence()
 
