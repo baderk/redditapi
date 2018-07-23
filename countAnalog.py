@@ -23,7 +23,10 @@ def countOccurence():
     words = {}
 
     print("------Counting Occurence------")
-    analogSub = reddit.subreddit('analog').new(limit=1000)
+    analogSub_top = reddit.subreddit('analog').top(limit=1000)
+    analogSub_hot = reddit.subreddit('analog').hot(limit=1000)
+    analogSub_new = reddit.subreddit('analog').new(limit=1000)
+
     # analogSub = subreddit_name.search(keyword, syntax='lucene', time_filter ='all', limit=999)
 
     # Text file into the dictionary words{}
@@ -31,26 +34,64 @@ def countOccurence():
     for line in file:
         words[line.strip().lower()] = 0
 
-    for i in analogSub:
+    ## TOP ##
+    for i in analogSub_top:
         postTitle = i.title.lower()
         for word in words:
             if word in postTitle:
                 words[word] += 1
-
-    xList = list(words.keys())
-    yList = list(words.values())
-
-    data = [go.Bar(
-
-                x = xList,
-                y = yList
+    xList_top = list(words.keys())
+    yList_top = list(words.values())
+    data_top = [go.Bar(
+                x = xList_top,
+                y = yList_top
         )]
+    py.plot(data_top, filename='basic-bar')
+    # jsonResponse = json.dumps(words, indent=2, sort_keys=True)
+    # print(jsonResponse)
 
-    py.plot(data, filename='basic-bar')
+    #resetting values of each camera
+    words = words.fromkeys(words, 0)
+
+    ## HOT ##
+    for i in analogSub_hot:
+        postTitle = i.title.lower()
+        for word in words:
+            if word in postTitle:
+                words[word] += 1
+    xList_hot = list(words.keys())
+    yList_hot = list(words.values())
+    data_hot = [go.Bar(
+                x = xList_hot,
+                y = yList_hot
+        )]
+    py.plot(data_hot, filename='basic-bar')
+    # jsonResponse = json.dumps(words, indent=2, sort_keys=True)
+    # print(jsonResponse)
 
 
-    jsonResponse = json.dumps(words, indent=2, sort_keys=True)
-    print(jsonResponse)
+    #resetting values of each camera
+    words = words.fromkeys(words, 0)
+
+    ## NEW ##
+    for i in analogSub_new:
+        postTitle = i.title.lower()
+        for word in words:
+            if word in postTitle:
+                words[word] += 1
+    xList_new = list(words.keys())
+    yList_new = list(words.values())
+    data_new = [go.Bar(
+                x = xList_new,
+                y = yList_new
+        )]
+    py.plot(data_new, filename='basic-bar')
+
+
+
+    print("\nTotal counted in Top: ", sum(yList_top[0:len(yList_top)]))
+    print("\nTotal counted in Hot: ", sum(yList_hot[0:len(yList_hot)]))
+    print("\nTotal counted in New: ", sum(yList_new[0:len(yList_new)]))
 
 countOccurence()
 

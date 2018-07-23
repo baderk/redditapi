@@ -9,11 +9,11 @@ pentax 67
 pentax 645
 pentax spotmatic
 pentax k-1000
-mamiya
 olympus mju
 olympus pen
 olympus om
-olympus
+olympus xa
+olympus stylus
 yashica
 minolta
 nikon
@@ -22,8 +22,8 @@ leica
 bronica
 contax
 ricoh
-fuji
 nimslo
 holga
 rolleiflex
 canonet
+mamiya
