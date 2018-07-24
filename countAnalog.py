@@ -3,6 +3,7 @@ import time
 import json
 
 import plotly
+from plotly import tools
 import plotly.plotly as py
 import plotly.graph_objs as go
 
@@ -16,8 +17,6 @@ reddit = praw.Reddit(client_id='5QRK4vEHkC2uhw',
                     )
 
 plotly.tools.set_credentials_file(username='baderk', api_key='vZoYPBNCyyTiHBA3Pn9X')
-
-#FIND A WAY TO GET ALL POSTS NOT ONLY HOT OR TOP
 
 def countOccurence():
     words = {}
@@ -42,11 +41,7 @@ def countOccurence():
                 words[word] += 1
     xList_top = list(words.keys())
     yList_top = list(words.values())
-    data_top = [go.Bar(
-                x = xList_top,
-                y = yList_top
-        )]
-    py.plot(data_top, filename='basic-bar')
+   
     # jsonResponse = json.dumps(words, indent=2, sort_keys=True)
     # print(jsonResponse)
 
@@ -61,11 +56,9 @@ def countOccurence():
                 words[word] += 1
     xList_hot = list(words.keys())
     yList_hot = list(words.values())
-    data_hot = [go.Bar(
-                x = xList_hot,
-                y = yList_hot
-        )]
-    py.plot(data_hot, filename='basic-bar')
+
+
+    # py.plot(data_hot, filename='basic-bar')
     # jsonResponse = json.dumps(words, indent=2, sort_keys=True)
     # print(jsonResponse)
 
@@ -81,17 +74,46 @@ def countOccurence():
                 words[word] += 1
     xList_new = list(words.keys())
     yList_new = list(words.values())
-    data_new = [go.Bar(
-                x = xList_new,
-                y = yList_new
-        )]
-    py.plot(data_new, filename='basic-bar')
 
 
 
     print("\nTotal counted in Top: ", sum(yList_top[0:len(yList_top)]))
-    print("\nTotal counted in Hot: ", sum(yList_hot[0:len(yList_hot)]))
-    print("\nTotal counted in New: ", sum(yList_new[0:len(yList_new)]))
+    print("Total counted in Hot: ", sum(yList_hot[0:len(yList_hot)]))
+    print("Total counted in New: ", sum(yList_new[0:len(yList_new)]), "\n")
+    # print(xList_top)
+
+    data_top = go.Bar(x = xList_top, y = yList_top, name='TOP', marker=dict(color='rgb(246, 114, 128)'))
+    data_hot = go.Bar(x = xList_hot, y = yList_hot, name='HOT', marker=dict(color='rgb(192, 108, 132)'))
+    data_new = go.Bar(x = xList_new, y = yList_new, name='NEW', marker=dict(color='rgb(108, 91, 123)'))
+
+    data = [data_top, data_hot, data_new]
+    layout = go.Layout(
+        title='Analog',
+        width=3840, height=2160,
+        font=dict(family='Courier New, monospace', size=18, color='#f5f6fa'), 
+        barmode='group', 
+        xaxis=dict(titlefont=(dict(size=10))),
+        yaxis=dict(
+            title='Nom. of Occurence',
+        ),
+        paper_bgcolor='#353b48', 
+        plot_bgcolor='#353b48',
+        legend=dict(
+            font=dict(
+                color='#f5f6fa'
+            )
+        )
+    )
+
+    # fig = tools.make_subplots(rows=1, cols=3, subplot_titles=('Top', 'Hot', 'New'))
+    fig = go.Figure(data=data, layout=layout)
+    # this appends the graphs to the panel
+    # fig.append_trace(data_top, 1, 1)
+    # fig.append_trace(data_hot, 1, 2)
+    # fig.append_trace(data_new, 1, 3)
+
+
+    py.plot(fig, filename='Analog')
 
 countOccurence()
 

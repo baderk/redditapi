@@ -5,6 +5,13 @@ canon af35mii
 canon f-1
 canon a1
 canon eos
+nikon f2
+nikon fm2
+nikon f5
+nikon fa
+nikon f80
+nikon f100
+contax
 pentax 67
 pentax 645
 pentax spotmatic
@@ -16,14 +23,13 @@ olympus xa
 olympus stylus
 yashica
 minolta
-nikon
-hasselblad
+hasselblad 
 leica
 bronica
-contax
 ricoh
 nimslo
 holga
 rolleiflex
 canonet
 mamiya
+xpan
