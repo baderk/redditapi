@@ -41,7 +41,7 @@ def countOccurence():
                 words[word] += 1
     xList_top = list(words.keys())
     yList_top = list(words.values())
-   
+
     # jsonResponse = json.dumps(words, indent=2, sort_keys=True)
     # print(jsonResponse)
 
@@ -86,6 +86,7 @@ def countOccurence():
     data_hot = go.Bar(x = xList_hot, y = yList_hot, name='HOT', marker=dict(color='rgb(192, 108, 132)'))
     data_new = go.Bar(x = xList_new, y = yList_new, name='NEW', marker=dict(color='rgb(108, 91, 123)'))
 
+# width=3840, height=2160,
     data = [data_top, data_hot, data_new]
     layout = go.Layout(
         title='Analog',
@@ -96,7 +97,7 @@ def countOccurence():
         yaxis=dict(
             title='Nom. of Occurence',
         ),
-        paper_bgcolor='#353b48', 
+        paper_bgcolor='#353b48',
         plot_bgcolor='#353b48',
         legend=dict(
             font=dict(
