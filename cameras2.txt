@@ -5,7 +5,7 @@ contax
 olympus
 yashica
 minolta
-hasselblad 
+hasselblad
 leica
 bronica
 ricoh
@@ -13,6 +13,6 @@ nimslo
 holga
 rolleiflex
 canonet
-mamiya
+mamiya c330
 xpan
 disposable
