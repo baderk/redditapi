@@ -29,7 +29,7 @@ def countOccurence():
     # analogSub = subreddit_name.search(keyword, syntax='lucene', time_filter ='all', limit=999)
 
     # Text file into the dictionary words{}
-    file = open("cameras.txt", "r")
+    file = open("cameras2.txt", "r")
     for line in file:
         words[line.strip().lower()] = 0
 
@@ -81,7 +81,7 @@ def countOccurence():
     print("Total counted in Hot: ", sum(yList_hot[0:len(yList_hot)]))
     print("Total counted in New: ", sum(yList_new[0:len(yList_new)]), "\n")
     # print(xList_top)
-
+# width=3840, height=2160,
     data_top = go.Bar(x = xList_top, y = yList_top, name='TOP', marker=dict(color='rgb(246, 114, 128)'))
     data_hot = go.Bar(x = xList_hot, y = yList_hot, name='HOT', marker=dict(color='rgb(192, 108, 132)'))
     data_new = go.Bar(x = xList_new, y = yList_new, name='NEW', marker=dict(color='rgb(108, 91, 123)'))
@@ -89,7 +89,7 @@ def countOccurence():
     data = [data_top, data_hot, data_new]
     layout = go.Layout(
         title='Analog',
-        width=3840, height=2160,
+        width=1280, height=1080,
         font=dict(family='Courier New, monospace', size=18, color='#f5f6fa'), 
         barmode='group', 
         xaxis=dict(titlefont=(dict(size=10))),
