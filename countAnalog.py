@@ -1,19 +1,21 @@
 import praw
 import time
 import json
+from mysettings import C_ID, C_SECRET, USERNAME, PASSWORD
 
 import plotly
 from plotly import tools
 import plotly.plotly as py
 import plotly.graph_objs as go
 
+
 start_time = time.time()
 
-reddit = praw.Reddit(client_id='5QRK4vEHkC2uhw',
-                     client_secret='TPkY8jF3L5gf1lH1mw-tIgXUZuY',
+reddit = praw.Reddit(client_id=C_ID,
+                     client_secret=C_SECRET,
                      user_agent='my user agent',
-                     username='Ambitious_Vegetable',
-                     password='redditAPI_'
+                     username=USERNAME,
+                     password=PASSWORD
                     )
 
 plotly.tools.set_credentials_file(username='baderk', api_key='vZoYPBNCyyTiHBA3Pn9X')

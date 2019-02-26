@@ -6,4 +6,5 @@ Next step is to create an interface and host it somewhere so users can interact 
 
 How to run:
 ==================
-
+After downloading/forking the repo:
+1. i
