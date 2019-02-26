@@ -1,7 +1,7 @@
 import praw
 import time
 import json
-from mysettings import C_ID, C_SECRET, USERNAME, PASSWORD
+from mysettings import C_ID, C_SECRET, REDDIT_USERNAME, PASSWORD,PLOTLY_USERNAME,PLOTLY_KEY
 
 import plotly
 from plotly import tools
@@ -14,11 +14,11 @@ start_time = time.time()
 reddit = praw.Reddit(client_id=C_ID,
                      client_secret=C_SECRET,
                      user_agent='my user agent',
-                     username=USERNAME,
+                     username=REDDIT_USERNAME,
                      password=PASSWORD
                     )
 
-plotly.tools.set_credentials_file(username='baderk', api_key='vZoYPBNCyyTiHBA3Pn9X')
+plotly.tools.set_credentials_file(username=PLOTLY_USERNAME, api_key=PLOTLY_KEY)
 
 def countOccurence():
     words = {}
