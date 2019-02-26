@@ -4,8 +4,8 @@ My motivation for this personal project is that I want to see what is the most u
 
 Next step is to create an interface and host it somewhere so users can interact with it and analyze subreddits.
 
-How to run countAnalog.py:
-==================
+How to run:
+-------------------
 After downloading/forking the repo:
 1. Change the values for client_id, client_secret, username and password to your own. Create a reddit account, then get the API ID and Secret.
 
