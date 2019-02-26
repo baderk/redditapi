@@ -1,0 +1,15 @@
+mysettings.py
+
+*.o
+*.com
+*.exe
+
+*.zip
+*.rar
+*.dmg
+
+*log
+
+__pycache__
+
+*.vs
