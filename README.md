@@ -1,8 +1,8 @@
 Exploring Reddit API (PRAW).
 
-My motivation for this personal project is that I want to see what is the most used camera and/or film in the subreddit Analog.
+The oroginal goal of this project was for finding out the most used camera and/or film in the subreddit Analog.
 
-Next step is to create an interface and host it somewhere so users can interact with it and analyze subreddits.
+The next step is to create an interface so users can interact with it and analyze different subreddits.
 
 How to run:
 -------------------
